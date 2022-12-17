@@ -6,7 +6,7 @@ public class BoolTest {
         b = false;
         System.out.println(b);
         b = true;
-        System.out.println(b);
+        System.out.println(b);  //jjj
         //if
         if (b) System.out.println("կոդը կկատարվի"); //if(b=true)
         b = false;
