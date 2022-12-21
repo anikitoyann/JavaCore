@@ -26,7 +26,6 @@ public class ArrayUtil {
             if (array[i] > max) {
                 max = array[i];
             }
-
         }
         System.out.println("max = " + max);
 
