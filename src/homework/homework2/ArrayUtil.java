@@ -31,73 +31,43 @@ public class ArrayUtil {
         System.out.println("max = " + max);
         System.out.println();
 
-        System.out.print("Բոլոր զույգ էլեմենտները " + " ");
+        System.out.print("Addcount: " + " ");
+        int addcount = 0;
         for (i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
+                addcount++;
                 System.out.print(array[i] + " ");
-            }
 
+            }
         }
+        System.out.print("addcount=" + addcount++);
         System.out.println();
-        System.out.print("Բոլոր կենտ էլեմենտները" + " ");
+
+        int evencount = 0;
+        System.out.print("evencount: " + " ");
         for (i = 0; i < array.length; i++) {
             if (array[i] % 2 != 0) {
+                evencount++;
                 System.out.print(array[i] + " ");
             }
-
         }
+        System.out.print("evencount= " + evencount++);
         System.out.println();
-        System.out.print("Զույգերի քանակ" + " ");
-        int qanak = 0;
+
+        int sum = 0;
         for (i = 0; i < array.length; i++) {
-            if (array[i] % 2 == 0) {
-                qanak++;
-            }
+            sum += array[i];
         }
-        System.out.println(qanak);
+        System.out.println("sum=" + sum);
+        System.out.println(sum / array.length);
+        System.out.println("first element=" + array[0]);
+        System.out.println("last element =" + array[array.length - 1]);
 
-        System.out.print("Կենտերի քանակ" + " ");
-        int qanakk = 0;
-        for (i = 0; i < array.length; i++) {
-            if (array[i] % 2 != 0) {
-                qanakk++;
-            }
-        }
-        System.out.println(qanakk);
-
-        System.out.print("միջին թվաբանական = " + " ");
-        double tvab = 0;
-        for (i = 0; i < array.length; i++) {
-            tvab += array[i];
-
-        }
-        System.out.println(tvab / array.length);
-
-        System.out.print("էլեմենտների գումար = " + " ");
-        int tvabb = 0;
-        for (i = 0; i < array.length; i++) {
-            tvabb += array[i];
-
-        }
-        System.out.println(tvabb);
-
-        System.out.print("Մասիվի առաջին էլեմենտ =");
-        for (i = 0; i < array.length; i++) {
-
-        }
-        System.out.println(array[0]);
-
-        System.out.print("մասիվի վերգին էլեմենտ =");
-        for (i = 0; i < array.length; i++) {
-
-        }
-        System.out.println(array[array.length - 1]);
-
-        System.out.print("Մասիվի մեջտեղի էլեմենտ =");
         for (i = 0; i < array.length / 2; i++) {
 
         }
-        System.out.println(array[i]);
+        System.out.println("middle element=" + array[i]);
+
 
     }
 
