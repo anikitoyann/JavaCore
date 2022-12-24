@@ -8,6 +8,7 @@ public class BasicMath {
         int c = b / 4;
         int d = c - a;
         int e = -d;
+
         System.out.println("a = " + a);
         System.out.println("b = " + b);
         System.out.println("c = " + c);
