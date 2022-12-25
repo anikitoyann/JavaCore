@@ -61,11 +61,7 @@ public class ArrayUtil {
         System.out.println(sum / array.length);
         System.out.println("first element=" + array[0]);
         System.out.println("last element =" + array[array.length - 1]);
-
-        for (i = 0; i < array.length / 2; i++) {
-
-        }
-        System.out.println("middle element=" + array[i]);
+        System.out.println("middle element=" + array[array.length/2]);
 
 
     }
