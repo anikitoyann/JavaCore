@@ -21,7 +21,6 @@ public class ArrayUtil {
         System.out.print("min = " + min);
         System.out.println();
 
-
         int max = array[0];
         for (i = 0; i < array.length; i++) {
             if (array[i] > max) {
@@ -31,27 +30,27 @@ public class ArrayUtil {
         System.out.println("max = " + max);
         System.out.println();
 
-        System.out.print("Addcount: " + " ");
-        int addcount = 0;
+        System.out.print("evencount: " + " ");
+        int evencount = 0;
         for (i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
-                addcount++;
-                System.out.print(array[i] + " ");
-
-            }
-        }
-        System.out.print("addcount=" + addcount++);
-        System.out.println();
-
-        int evencount = 0;
-        System.out.print("evencount: " + " ");
-        for (i = 0; i < array.length; i++) {
-            if (array[i] % 2 != 0) {
                 evencount++;
                 System.out.print(array[i] + " ");
+
             }
         }
-        System.out.print("evencount= " + evencount++);
+        System.out.print("evencount=" + evencount++);
+        System.out.println();
+
+        int oddcount = 0;
+        System.out.print("oddcount: " + " ");
+        for (i = 0; i < array.length; i++) {
+            if (array[i] % 2 != 0) {
+                oddcount++;
+                System.out.print(array[i] + " ");
+            }
+        }
+        System.out.print("oddcount= " + oddcount++);
         System.out.println();
 
         int sum = 0;
