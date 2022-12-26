@@ -58,10 +58,11 @@ public class ArrayUtil {
             sum += array[i];
         }
         System.out.println("sum=" + sum);
-        System.out.println(sum / array.length);
+        System.out.println("middle sum="+sum / array.length);
         System.out.println("first element=" + array[0]);
         System.out.println("last element =" + array[array.length - 1]);
         System.out.println("middle element=" + array[array.length/2]);
+
 
 
     }
