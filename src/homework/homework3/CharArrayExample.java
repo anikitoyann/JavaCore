@@ -15,13 +15,11 @@ public class CharArrayExample {
         char[] chars2 = {'j', 'a', 'v', 'a', 'l', 'o', 'v', 'e'};
         System.out.println("middleElement= " + chars2[chars2.length / 2 - 1] + "," + chars2[chars2.length / 2]);
 
-        char[] chars3 = {'j', 'a', 'v', 'a', 'l', 'o', 'l', 'k'};
+        char[] chars3 = {'j', 'a', 'v', 'a', 'l', 'o', 'l', 'y'};
 
-        boolean char3;
+        boolean char3=false;
         if ((chars3[chars3.length - 2] == 'l') && (chars3[chars3.length - 1] == 'y')) {
             char3 = true;
-        } else {
-            char3 = false;
         }
         System.out.println(char3);
 
@@ -31,8 +29,8 @@ public class CharArrayExample {
                 System.out.print(text[i]);
             }
         }
-        }
     }
+}
 
 
 
