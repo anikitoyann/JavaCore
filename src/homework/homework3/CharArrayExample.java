@@ -16,7 +16,6 @@ public class CharArrayExample {
         System.out.println("middleElement= " + chars2[chars2.length / 2 - 1] + "," + chars2[chars2.length / 2]);
 
         char[] chars3 = {'j', 'a', 'v', 'a', 'l', 'o', 'k', 'y'};
-        boolean char3 = false;
         System.out.println((chars3[chars3.length - 2] == 'l') && (chars3[chars3.length - 1] == 'y'));
 
 
