@@ -10,7 +10,6 @@ public class ArraySpaceExample {
         for (int i = 0; i < array.length; i++) {
             if (array[i] != ' ') {
                 firstIndex = i;
-                i++;
                 break;
             }
         }
