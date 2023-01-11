@@ -1,4 +1,4 @@
-package homework.homework2;
+package homework.homework3;
 
 
 public class ArrayUtil {
@@ -50,7 +50,7 @@ public class ArrayUtil {
                 System.out.print(array[i] + " ");
             }
         }
-        System.out.print("oddcount= " + oddcount++);
+        System.out.print("oddCount= " + oddcount++);
         System.out.println();
 
         int sum = 0;
@@ -60,7 +60,7 @@ public class ArrayUtil {
         System.out.println("sum=" + sum);
         System.out.println("middle sum="+sum / array.length);
         System.out.println("first element=" + array[0]);
-        System.out.println("last element =" + array[array.length - 1]);
+        System.out.println("LastIndex =" + array[array.length - 1]);
         System.out.println("middle element=" + array[array.length/2]);
 
 
