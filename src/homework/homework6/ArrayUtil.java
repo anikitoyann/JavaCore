@@ -60,7 +60,7 @@ public class ArrayUtil {
     void sort1Array(int[] array) {
         System.out.println("Numbers in ascending order");
         for (int i = 0; i < array.length; i++) {
-            for (int j = 1; j < array.length - 1; j++) {
+            for (int j = 1; j < array.length - i; j++) {
                 if (array[j] < array[j - 1]) {
                     int sort = array[j];
                     array[j] = array[j - 1];
