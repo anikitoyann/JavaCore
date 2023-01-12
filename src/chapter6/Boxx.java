@@ -7,7 +7,7 @@ public class Boxx {
     double volume() {
         return width * depth * height;
     }
-    void setDim (int w,int h,int d){
+    void setDim (double w,double h,double d){
         width=w;
         height=h;
         depth=d;

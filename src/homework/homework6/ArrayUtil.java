@@ -22,7 +22,7 @@ public class ArrayUtil {
         System.out.println();
     }
 
-    void EvenCount(int[] array) {
+    void evenCount(int[] array) {
         int evencount = 0;
         int i = 0;
         for (i = 0; i < array.length; i++) {
@@ -35,7 +35,7 @@ public class ArrayUtil {
         System.out.println();
     }
 
-    void OddCount(int[] array) {
+    void oddCount(int[] array) {
 
         int oddcount = 0;
         for (int i = 0; i < array.length; i++) {
@@ -48,7 +48,7 @@ public class ArrayUtil {
         System.out.println();
     }
 
-    void Sum(int[] array) {
+    void sum(int[] array) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             sum += array[i];
@@ -57,7 +57,7 @@ public class ArrayUtil {
 
     }
 
-    void Sort1Array(int[] array) {
+    void sort1Array(int[] array) {
         System.out.println("Numbers in ascending order");
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length - 1; j++) {
@@ -74,7 +74,7 @@ public class ArrayUtil {
         }
     }
 
-    void Sort2Array(int[] array) {
+    void sort2Array(int[] array) {
         System.out.println("Numbers in descending order");
         for (int i = 0; i < array.length; i++) {
             for (int j = 1; j < array.length - i; j++) {
@@ -90,7 +90,7 @@ public class ArrayUtil {
         System.out.println();
     }
 
-    void CharsCountOfo(char[] chars) {
+    void charsCountOfo(char[] chars) {
         char c = 'o';
         int count = 0;
         for (int i = 0; i < chars.length; i++) {
@@ -101,11 +101,11 @@ public class ArrayUtil {
         System.out.println("Count of o: " + count);
     }
 
-    void MiddlElem(char[] chars) {
+    void middlElem(char[] chars) {
         System.out.println("middleElement: " + chars[(chars.length / 2) - 1] + "," + chars[chars.length / 2]);
     }
 
-    void Space(char[] chars) {
+    void space(char[] chars) {
         for (int i = 0; i < chars.length; i++) {
             if (chars[i] != ' ') {
                 System.out.print(chars[i]);
@@ -115,7 +115,7 @@ public class ArrayUtil {
 
     }
 
-    void CharsSpaceExample(char[] chars) {
+    void charsSpaceExample(char[] chars) {
         int firstIndex = 0;
         int lastIndex = 0;
         for (int i = 0; i < chars.length; i++) {

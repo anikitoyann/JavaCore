@@ -6,18 +6,18 @@ public class ArrayUtilDemo {
         ArrayUtil au = new ArrayUtil();
         au.maxOfArray(array);
         au.minOfArray(array);
-        au.EvenCount(array);
-        au.OddCount(array);
-        au.Sum(array);
-        au.Sort1Array(array);
-        au.Sort2Array(array);
+        au.evenCount(array);
+        au.oddCount(array);
+        au.sum(array);
+        au.sort1Array(array);
+        au.sort2Array(array);
 
         char[] chars = {' ', ' ', 'j', 'a', 'v', ' ', 'a', 'l', 'o', 'v', 'e', ' ', ' '};
-        au.CharsCountOfo(chars);
-        au.MiddlElem(chars);
-        au.Space(chars);
-        au.CharsSpaceExample(chars);
-        au.CharsCountOfo(chars);
+        au.charsCountOfo(chars);
+        au.middlElem(chars);
+        au.space(chars);
+        au.charsSpaceExample(chars);
+        au.charsCountOfo(chars);
 
 
     }
