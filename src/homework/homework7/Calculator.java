@@ -10,9 +10,11 @@ public class Calculator {
         return a * b;
     }
     double divide(double a, double b) {
-        if (b != 0) return a / b;
-        else System.out.println("A number is not divisible by 0");
-        return -1;
+        if(b==0) {
+            System.out.println("A number  is not divisible by 0 ");
+            return -1;
+        }
+        return a/b;
 
     }
 }
