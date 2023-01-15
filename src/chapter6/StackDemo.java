@@ -6,7 +6,12 @@ public class StackDemo {
         System.out.println(stack.tos);
         stack.push(4);
         stack.push(7);
+        stack.push(25);
+        stack.push(0);
+        stack.push(35);
+        stack.push(-12);
+        for(int i=0;i<10;i++){
         int a=stack.pop();
-        System.out.println(a);
+        System.out.print(a+" ");
     }
-}
+}}
