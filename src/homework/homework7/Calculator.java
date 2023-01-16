@@ -11,7 +11,7 @@ public class Calculator {
     }
     double divide(double a, double b) {
         if(b==0) {
-            System.err.println("A number  is not divisible by 0 ");
+            System.out.println("A number  is not divisible by 0 ");
             return -1;
         }
         return a/b;
