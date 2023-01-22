@@ -42,9 +42,10 @@ public class DynamicArray {
             return;
         }
         for (int i = 0; i < size; i++) {
-            if(i!=index){
-            System.out.print(array[i]+" ");
-        }}
+            if (i != index) {
+                System.out.print(array[i] + " ");
+            }
+        }
 
         System.out.println();
     }
@@ -77,10 +78,10 @@ public class DynamicArray {
     }
 
     public boolean exists(int value) {
-        int i=0;
-            if ((array[i] == value)?true:false);
-            return array[i]==value ;
-        }
+        int i = 0;
+        if ((array[i] == value) ? true : false) ;
+        return array[i] == value;
+    }
 
 
     public int getIndexByValue(int value) {
