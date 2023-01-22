@@ -43,7 +43,7 @@ public class DynamicArray {
         }
         for (int i = 0; i < size; i++) {
             if(i!=index){
-            array[i ] = array[i];
+            array[i] = array[i];
             System.out.print(array[i]+" ");
         }}
 
