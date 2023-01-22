@@ -2,11 +2,7 @@ package chapter6;
 
 public class Stack {
     int stck[] = new int[10];
-    int tos;
-
-    Stack() {
-        tos = -1;
-    }
+    int tos=-1;
 
     void push(int item) {
         if (tos == 9) {

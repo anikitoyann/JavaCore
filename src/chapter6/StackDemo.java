@@ -10,6 +10,8 @@ public class StackDemo {
         stack.push(35);
         stack.push(12);
         System.out.println(stack.pop());
+        System.out.println(stack.pop());
+
 
 
     }
