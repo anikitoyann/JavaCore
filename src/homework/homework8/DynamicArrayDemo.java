@@ -17,10 +17,10 @@ public class DynamicArrayDemo {
         da.add(24);
 
         da.print();
-        da.deleteByIndex(0);
+        da.deleteByIndex(25);
         da.set(2, 5);
         da.add(1, 5);
-        System.out.println(da.exists(34));
+        System.out.println(da.exists(89));
         System.out.println(da.getIndexByValue(24));
 
     }

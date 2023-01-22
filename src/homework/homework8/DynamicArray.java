@@ -78,13 +78,11 @@ public class DynamicArray {
     }
 
     public boolean exists(int value) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) {
-                return true;
-            }
+        int i=0;
+            if ((array[i] == value)?true:false);
+            return array[i]==value ;
         }
-        return false;
-    }
+
 
     public int getIndexByValue(int value) {
         int k = 0;
