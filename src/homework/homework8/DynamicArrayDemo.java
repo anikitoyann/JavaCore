@@ -8,7 +8,7 @@ public class DynamicArrayDemo {
         da.add(0);
         da.add(24);
         da.add(35);
-        da.add(25);
+        da.add(24);
         da.add(34);
         da.add(34);
         da.add(34);
@@ -21,7 +21,7 @@ public class DynamicArrayDemo {
         da.set(2, 5);
         da.add(1, 5);
         System.out.println(da.exists(89));
-        System.out.println(da.getIndexByValue(24));
+        System.out.println(da.getIndexByValue(555));
 
     }
 }

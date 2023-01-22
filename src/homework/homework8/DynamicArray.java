@@ -92,7 +92,7 @@ public class DynamicArray {
             }
         }
         if (k > 1) {
-            return array[0];
+            return 0;
         }
         return -1;
     }
