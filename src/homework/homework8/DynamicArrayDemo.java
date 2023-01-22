@@ -17,7 +17,7 @@ public class DynamicArrayDemo {
         da.add(24);
 
         da.print();
-        da.deleteByIndex(25);
+        da.deleteByIndex(5);
         da.set(2, 5);
         da.add(1, 5);
         System.out.println(da.exists(89));
