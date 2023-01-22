@@ -39,66 +39,67 @@ public class DynamicArray {
     public void deleteByIndex(int index) {
         if (index > size) {
             System.out.println("no such element");
-        } else {
-            for (int i = 0; i < size; i++) {
-                if (i != index) {
-                    array[i] = array[i];
-                    System.out.print(array[i] + " ");
-                }
-            }
-            System.out.println();
+            return;
         }
-    }
-
-    public void set(int index, int value) {
-        if (index > size) {
-            System.out.println("no such element");
-
-        } else {
-            for (int i = 0; i < size; i++) {
-                array[index] = value;
+        for (int i = 0; i < size; i++) {
+            if (i != index) {
+                array[i] = array[i];
                 System.out.print(array[i] + " ");
             }
         }
         System.out.println();
     }
 
-    public void add(int index, int value) {
-        if (index > size || index < 0) {
-            System.out.println("no such element");
-        } else {
-            for (int i = array.length - 1; i > index; i--) {
-                array[i] = array[i - 1];
-            }
-            array[index] = value;
 
-            for (int i = 0; i < size + 1; i++) {
-                System.out.print(array[i] + " ");
-            }
+    public void set(int index, int value) {
+        if (index > size) {
+            System.out.println("no such element");
+
+            return;
+        }
+                for (int i = 0; i < size; i++) {
+                    array[index] = value;
+                    System.out.print(array[i] + " ");
+                }
+
             System.out.println();
         }
-    }
 
-    public boolean exists(int value) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) {
-                return true;
+        public void add ( int index, int value){
+            if (index > size || index < 0) {
+                System.out.println("no such element");
+            return;}
+                for (int i = array.length - 1; i > index; i--) {
+                    array[i] = array[i - 1];
+                }
+                array[index] = value;
+
+                for (int i = 0; i < size + 1; i++) {
+                    System.out.print(array[i] + " ");
+                }
+                System.out.println();
+
+        }
+
+        public boolean exists ( int value){
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] == value) {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
 
-    }
-
-    public int getIndexByValue(int value) {
-        int k = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) {
-                k++;
+        public int getIndexByValue ( int value){
+            int k = 0;
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] == value) {
+                    k++;
+                }
             }
+            if (k > 1) {
+                return array[0];
+            }
+            return -1;
         }
-        if (k > 1) {
-            return array[0];
-        }
-        return -1;
     }
-}
