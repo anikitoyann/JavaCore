@@ -16,10 +16,10 @@ public class DynamicArrayDemo {
         da.add(34);
         da.add(24);
         da.print();
-        da.deleteByIndex(3);
-        da.set(0, 5);
+        da.deleteByIndex(1);
+        da.set(3, 5);
         da.add(3, 5);
-        System.out.println(da.exists(7));
+        System.out.println(da.exists(34));
         System.out.println(da.getIndexByValue(24));
 
     }
