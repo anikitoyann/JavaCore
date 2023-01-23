@@ -5,7 +5,7 @@ public class DynamicArray {
     private int size = 0;
 
     public void add(int value) {
-        if (size == array.length-1) {
+        if (size == array.length - 1) {
             extend();
         }
         array[size] = value;
@@ -22,7 +22,7 @@ public class DynamicArray {
     }
 
     public int getByIndex(int index) {
-        if (index < 0 || index > size-1) {
+        if (index < 0 || index > size - 1) {
             System.out.println("Wrong Index");
             return -1;
         }
@@ -81,12 +81,13 @@ public class DynamicArray {
     }
 
     public boolean exists(int value) {
-   boolean b=false;
+        boolean b = false;
         for (int val : array) {
             if (val == value) {
-                b=true;
+                b = true;
                 break;
-            }}
+            }
+        }
         return b;
     }
 
