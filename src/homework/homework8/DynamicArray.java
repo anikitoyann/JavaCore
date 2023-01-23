@@ -80,21 +80,21 @@ public class DynamicArray {
     }
 
     public boolean exists(int value) {
-        int i = 0;
-        if ((array[i] == value) ? true : false) ;
-        return array[i] == value;
+        for (int values : array) {
+            if (values == value) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public int getIndexByValue(int value) {
-        int k = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == value) {
-                k++;
+                return i;
             }
         }
-        if (k > 1) {
-            return 0;
-        }
-        return -1;
+        return 0;
+
     }
 }
