@@ -37,16 +37,17 @@ public class DynamicArray {
     }
 
     public void deleteByIndex(int index) {
-        if (index > size) {
+        if (index >= size || index < 0) {
             System.out.println("no such element");
             return;
         }
-        for (int i = 0; i < size; i++) {
-            if (i != index) {
-                System.out.print(array[i] + " ");
-            }
-        }
 
+        for (int i = index; i < size - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        size--;
+        for(int i=0;i<size;i++){
+        System.out.print(array[i]+" ");}
         System.out.println();
     }
 
@@ -82,7 +83,6 @@ public class DynamicArray {
         if ((array[i] == value) ? true : false) ;
         return array[i] == value;
     }
-
 
     public int getIndexByValue(int value) {
         int k = 0;
