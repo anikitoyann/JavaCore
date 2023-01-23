@@ -80,8 +80,9 @@ public class DynamicArray {
     }
 
     public boolean exists(int value) {
-        for (int values : array) {
-            if (values == value) {
+        boolean b = false;
+        for (int val : array) {
+            if (val == value) {
                 return true;
             }
         }

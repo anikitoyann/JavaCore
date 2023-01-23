@@ -20,7 +20,7 @@ public class DynamicArrayDemo {
         da.deleteByIndex(8);
         da.set(0, 5);
         da.add(6, 55);
-        System.out.println(da.exists(100));
+        System.out.println(da.exists(101));
         System.out.println(da.getIndexByValue(24));
 
     }
