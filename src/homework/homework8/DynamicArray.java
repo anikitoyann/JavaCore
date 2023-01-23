@@ -81,12 +81,13 @@ public class DynamicArray {
     }
 
     public boolean exists(int value) {
+   boolean b=false;
         for (int val : array) {
             if (val == value) {
-                return true;
-            }
-        }
-        return false;
+                b=true;
+                break;
+            }}
+        return b;
     }
 
     public int getIndexByValue(int value) {

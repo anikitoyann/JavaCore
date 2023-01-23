@@ -26,9 +26,9 @@ public class DynamicArrayDemo {
         da.deleteByIndex(8);
         da.set(0, 5);
         da.add(6, 55);
-        System.out.println(da.exists(101));
+        System.out.println(da.exists(110));
         System.out.println(da.getIndexByValue(101));
-        System.out.println(da.getByIndex(-4));
+        System.out.println(da.getByIndex(4));
 
     }
 }
