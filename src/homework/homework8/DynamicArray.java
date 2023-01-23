@@ -46,13 +46,14 @@ public class DynamicArray {
             array[i] = array[i + 1];
         }
         size--;
-        for(int i=0;i<size;i++){
-        System.out.print(array[i]+" ");}
+        for (int i = 0; i < size; i++) {
+            System.out.print(array[i] + " ");
+        }
         System.out.println();
     }
 
     public void set(int index, int value) {
-        if (index > size) {
+        if (index > size || index < 0) {
             System.out.println("no such element");
             return;
         }

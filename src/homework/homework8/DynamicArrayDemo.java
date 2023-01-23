@@ -10,14 +10,14 @@ public class DynamicArrayDemo {
         da.add(35);
         da.add(24);
         da.add(34);
-        da.add(34);
+        da.add(100);
         da.add(34);
         da.add(34);
         da.add(34);
         da.add(24);
 
         da.print();
-        da.deleteByIndex(1);
+        da.deleteByIndex(2);
         da.set(2, 5);
         da.add(1, 5);
         System.out.println(da.exists(89));
