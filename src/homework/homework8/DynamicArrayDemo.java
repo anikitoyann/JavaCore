@@ -14,14 +14,21 @@ public class DynamicArrayDemo {
         da.add(34);
         da.add(14);
         da.add(34);
+        da.add(34);
+        da.add(34);
+        da.add(34);
+        da.add(34);
+        da.add(34);
+        da.add(34);
+        da.add(34);
         da.add(24);
-
         da.print();
         da.deleteByIndex(8);
         da.set(0, 5);
         da.add(6, 55);
         System.out.println(da.exists(101));
-        System.out.println(da.getIndexByValue(24));
+        System.out.println(da.getIndexByValue(101));
+        System.out.println(da.getByIndex(-4));
 
     }
 }
