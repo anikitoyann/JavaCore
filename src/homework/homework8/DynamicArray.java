@@ -43,14 +43,10 @@ public class DynamicArray {
             return;
         }
 
-        for (int i = index; i < size - 1; i++) {
-            array[i] = array[i + 1];
+        for (int i = index + 1; i < size; i++) {
+            array[i - 1] = array[i];
         }
         size--;
-        for (int i = 0; i < size; i++) {
-            System.out.print(array[i] + " ");
-        }
-        System.out.println();
     }
 
     public void set(int index, int value) {
@@ -70,14 +66,14 @@ public class DynamicArray {
             System.out.println("no such element");
             return;
         }
-        for (int i = array.length - 1; i > index; i--) {
+        if (size == array.length) {
+            extend();
+        }
+        for (int i = size; i >= index; i--) {
             array[i] = array[i - 1];
         }
         array[index] = value;
-        for (int i = 0; i < size + 1; i++) {
-            System.out.print(array[i] + " ");
-        }
-        System.out.println();
+        size++;
     }
 
     public boolean exists(int value) {
