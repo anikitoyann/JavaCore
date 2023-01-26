@@ -15,38 +15,31 @@ public class BraceChecker {
             char c = text.charAt(i);
             switch (c) {
 
-                case '{':
-                case '(':
                 case '[':
+                case '(':
+                case '{':
                     myStack.push(c);
                     break;
 
                 case '}':
                     char end = (char) myStack.pop();
-                    if (end != '}') {
-                        System.out.print("Error: Opened" + c + " but closed" + end + " at" + " " + i);
-                    } else {
-                        System.out.println("No Error");
+                    if (end != '{') {
+                        System.out.println("Error: Opened" + end + " but Closed" + c + " at" + " " + i);
                     }
                     break;
 
                 case ')':
                     end = (char) myStack.pop();
-                    if (end != ')') {
-                        System.out.print("Error: Opened" + c + " but closed" + end + "at" + " " + i);
-                    } else {
-                        System.out.println("No Error:");
+                    if (end != '(') {
+                        System.out.print("Error: Opened" + end + " but Closed" + c + "at" + " " + i);
                     }
                     break;
 
                 case ']':
                     end = (char) myStack.pop();
-                    if (end != ']') {
-                        System.out.print("Error: Opened" + c + " but closed" + end + " but closed" + end + "at" + " " + i);
-                    } else {
-                        System.out.println("No Error");
+                    if (end != '[') {
+                        System.out.print("Error: Opened" + end + " but closed" + c + "at " + i);
                     }
-
                     break;
             }
 
