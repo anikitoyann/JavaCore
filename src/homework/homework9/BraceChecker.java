@@ -1,6 +1,5 @@
 package homework.homework9;
 
-
 public class BraceChecker {
     private String text;
 
@@ -24,8 +23,8 @@ public class BraceChecker {
 
                 case '}':
                     end = (char) myStack.pop();
-                    if(end==0){
-                        System.out.println("not opened " + " but closed"+c+" at "+i);
+                    if (end == 0) {
+                        System.out.println("not opened " + " but closed" + c + " at " + i);
                     } else if (end != '{') {
                         System.out.println("Error: Opened" + end + " but Closed" + c + " at" + " " + i);
                     }
@@ -34,8 +33,8 @@ public class BraceChecker {
 
                 case ')':
                     end = (char) myStack.pop();
-                    if(end==0){
-                        System.out.println("not opened " + "but closed"+c+" at "+i);
+                    if (end == 0) {
+                        System.out.println("not opened " + "but closed" + c + " at " + i);
                     } else if (end != '(') {
                         System.out.print("Error: Opened" + end + " but Closed" + c + "at" + " " + i);
                     }
@@ -44,8 +43,8 @@ public class BraceChecker {
 
                 case ']':
                     end = (char) myStack.pop();
-                    if(end==0){
-                        System.out.println("not opened " +" but closed"+c+" at "+i);
+                    if (end == 0) {
+                        System.out.println("not opened " + " but closed" + c + " at " + i);
                     } else if (end != '[') {
                         System.out.print("Error: Opened" + end + " but closed" + c + "at " + i);
                     }
@@ -54,13 +53,15 @@ public class BraceChecker {
                     break;
             }
         }
-        char end=(char) myStack.pop();
-        while(((char) myStack.pop())!=0){
-            System.out.println("Error:opened "+end+" but not closed");
+        char end = (char) myStack.pop();
+        while (end != 0) {
+            System.out.println("Error:opened " + end + " but not closed");
+            return;
         }
+    }
+}
 
-        }
-        }
+
 
 
 

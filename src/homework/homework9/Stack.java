@@ -3,7 +3,6 @@ package homework.homework9;
 public class Stack {
     public int[] stck = new int[10];
     private int tos;
-
     public Stack() {
         tos = -1;
     }
@@ -11,8 +10,7 @@ public class Stack {
 
     void push(int item) {
         if (tos == 10) {
-            System.out.println("Ստեկը դատարկ է");
-
+           return;
         } else stck[++tos] = item;
         extend();
     }
