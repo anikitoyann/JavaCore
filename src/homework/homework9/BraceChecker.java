@@ -20,7 +20,6 @@ public class BraceChecker {
                 case '{':
                     myStack.push(c);
                     break;
-
                 case '}':
                     end = (char) myStack.pop();
                     if (end == 0) {
@@ -53,10 +52,9 @@ public class BraceChecker {
                     break;
             }
         }
-        char end = (char) myStack.pop();
-        while (end != 0) {
-            System.out.println("Error:opened " + end + " but not closed");
-            return;
+        char end;
+        while ((end=(char)myStack.pop())!= 0) {
+            System.err.println("Error:opened " + end + " but not closed");
         }
     }
 }
