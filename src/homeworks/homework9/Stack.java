@@ -1,8 +1,9 @@
-package homework.homework9;
+package homeworks.homework9;
 
 public class Stack {
     public int[] stck = new int[10];
     private int tos;
+
     public Stack() {
         tos = -1;
     }
@@ -10,7 +11,7 @@ public class Stack {
 
     void push(int item) {
         if (tos == 10) {
-           return;
+            return;
         } else stck[++tos] = item;
         extend();
     }
@@ -33,5 +34,8 @@ public class Stack {
         }
     }
 
+    public boolean isEmpty() {
+        return tos == -1;
+    }
 
 }

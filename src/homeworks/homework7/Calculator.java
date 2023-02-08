@@ -1,4 +1,4 @@
-package homework.homework7;
+package homeworks.homework7;
 public class Calculator {
     double plus(double a, double b) {
         return a + b;

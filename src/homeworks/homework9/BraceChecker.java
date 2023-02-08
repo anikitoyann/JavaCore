@@ -1,4 +1,4 @@
-package homework.homework9;
+package homeworks.homework9;
 
 public class BraceChecker {
     private String text;
@@ -52,12 +52,16 @@ public class BraceChecker {
                     break;
             }
         }
-        char end;
-        while ((end=(char)myStack.pop())!= 0) {
-            System.err.println("Error:opened " + end + " but not closed");
+        // char end;
+        //  while ((end=(char)myStack.pop())!= 0) {
+        //     System.err.println("Error:opened " + end + " but not closed");
+        while (!myStack.isEmpty()) {
+            System.out.println("opened" + (char)myStack.pop() + "but not closed");
         }
+
     }
 }
+
 
 
 

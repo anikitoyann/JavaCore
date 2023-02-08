@@ -1,4 +1,4 @@
-package homework.homework6;
+package homeworks.homework6;
 
 public class ArrayUtil {
     void maxOfArray(int[] array) {

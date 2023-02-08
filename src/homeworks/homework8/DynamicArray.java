@@ -1,4 +1,4 @@
-package homework.homework8;
+package homeworks.homework8;
 
 public class DynamicArray {
     private int[] array = new int[10];
@@ -13,8 +13,7 @@ public class DynamicArray {
     }
 
     private void extend() {
-        int lenght = array.length + 10;
-        int[] newarray = new int[lenght];
+        int[] newarray = new int[array.length + 10];
         for (int i = 0; i < array.length; i++) {
             newarray[i] = array[i];
         }
