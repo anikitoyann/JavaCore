@@ -48,7 +48,7 @@ public class EmployeStorage {
         boolean found = false;
         for (int i = 0; i < size; i++) {
             Employee employee = array[i];
-            if (employee.getCompany().toLowerCase().equals(companyy.toLowerCase())) {
+            if (employee.getCompany().toLowerCase().contains(companyy.toLowerCase())) {
                 found = true;
                 System.out.println(employee);
             }
