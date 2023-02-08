@@ -17,21 +17,20 @@ public class EmployeeDemo {
             System.out.println("Please input 2 for print all employee");
             System.out.println("Please input 3 for search employee by employee ID ");
             System.out.println("Please input 4 for search employee by company name");
-
             String command = scanner.nextLine();
-            Employee employee = new Employee();
+
             switch (command) {
                 case "0":
                     isRun = false;
                     break;
                 case "1":
+                    Employee employee = new Employee();
                     System.out.println("Please input employee name");
                     String name = scanner.nextLine();
                     System.out.println("Please input employee surname");
                     String surname = scanner.nextLine();
                     System.out.println("Please input empleeID A1+...");
                     String empleeID = scanner.nextLine();
-
                     if (!empleeID.startsWith("A1")) {
                         System.err.println("wrong gender");
                         return;

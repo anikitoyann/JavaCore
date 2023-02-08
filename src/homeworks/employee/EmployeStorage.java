@@ -32,13 +32,13 @@ public class EmployeStorage {
         boolean search = false;
         for (int i = 0; i < size; i++) {
             Employee employee = array[i];
-            if (employee.getEmplyeeID().toLowerCase().equals(keyword.toLowerCase())) {
+            if (employee.getEmplyeeID().toLowerCase().contains(keyword.toLowerCase())) {
                 search = true;
                 System.out.println(employee);
             }
         }
         if (!search) {
-            System.out.println("Empiloyee with" + keyword + "does not exists");
+            System.out.println("Empiloyee with " + keyword + " does not exists");
 
         }
     }
