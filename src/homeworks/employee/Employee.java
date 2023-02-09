@@ -6,15 +6,15 @@ import java.util.Objects;
 public class Employee {
     private String name;
     private String surname;
-    private String emplyeeID;
+    private String ID;
     private int salary;
     private String company;
     private String position;
 
-    public Employee(String name, String surname, String emplyeeID, int salary, String company, String position) {
+    public Employee(String name, String surname, String ID, int salary, String company, String position) {
         this.name = name;
         this.surname = surname;
-        this.emplyeeID = emplyeeID;
+        this.ID = ID;
 
         this.salary = salary;
         this.company = company;
@@ -41,13 +41,12 @@ public class Employee {
     }
 
     public String getEmplyeeID() {
-        return emplyeeID;
+        return ID;
     }
 
     public void setEmplyeeID(String emplyeeID) {
-        this.emplyeeID = emplyeeID;
-
-    }
+        this.ID = emplyeeID;
+        }
 
     public int getSalary() {
         return salary;
@@ -74,16 +73,14 @@ public class Employee {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return salary == employee.salary && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(emplyeeID, employee.emplyeeID) && Objects.equals(company, employee.company) && Objects.equals(position, employee.position);
+    public boolean equals(Object ID) {
+        Employee atheremploy = (Employee) ID;
+        return  this.ID==atheremploy.ID;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, emplyeeID, salary, company, position);
+        return Objects.hash(name, surname, ID, salary, company, position);
     }
 
     @Override
@@ -91,7 +88,7 @@ public class Employee {
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", emplyeeID='" + emplyeeID + '\'' +
+                ", emplyeeID='" + ID + '\'' +
                 ", salary=" + salary +
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +

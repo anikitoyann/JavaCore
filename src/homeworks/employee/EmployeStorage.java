@@ -27,20 +27,16 @@ public class EmployeStorage {
         }
 
     }
-
-    public void search(String keyword) {
+    public Object search(String ID) {
         boolean search = false;
         for (int i = 0; i < size; i++) {
             Employee employee = array[i];
-            if (employee.getEmplyeeID().toLowerCase().contains(keyword.toLowerCase())) {
+            if (employee.getEmplyeeID().toLowerCase().contains(ID.toLowerCase())) {
                 search = true;
                 System.out.println(employee);
             }
-        }
-        if (!search) {
-            System.out.println("Empiloyee with " + keyword + " does not exists");
+        } return null;
 
-        }
     }
 
 
