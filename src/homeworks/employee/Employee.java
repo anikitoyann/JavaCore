@@ -37,16 +37,18 @@ public class Employee {
     }
 
     public void setSurname(String surname) {
+
         this.surname = surname;
     }
 
-    public String getEmplyeeID() {
+    public String getID() {
         return ID;
     }
 
-    public void setEmplyeeID(String emplyeeID) {
-        this.ID = emplyeeID;
-        }
+    public void setID(String ID) {
+        this.ID = ID;
+
+    }
 
     public int getSalary() {
         return salary;
@@ -73,9 +75,18 @@ public class Employee {
     }
 
     @Override
-    public boolean equals(Object ID) {
-        Employee atheremploy = (Employee) ID;
-        return  this.ID==atheremploy.ID;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+
+        Employee employee = (Employee) o;
+
+        if (salary != employee.salary) return false;
+        if (!Objects.equals(name, employee.name)) return false;
+        if (!Objects.equals(surname, employee.surname)) return false;
+        if (!Objects.equals(ID, employee.ID)) return false;
+        if (!Objects.equals(company, employee.company)) return false;
+        return Objects.equals(position, employee.position);
     }
 
     @Override

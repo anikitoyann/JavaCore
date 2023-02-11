@@ -1,49 +1,47 @@
 package homeworks.employee;
 
 public class EmployeStorage {
-    private Employee[] array = new Employee[10];
+    private Employee[] employees = new Employee[10];
     private int size = 0;
 
     public void add(Employee value) {
-        if (size == array.length - 1) {
+        if (size == employees.length ) {
             extend();
         }
-        array[size] = value;
-        size++;
+
+        employees[size++] = value;
     }
 
     private void extend() {
-        Employee[] newarray = new Employee[array.length + 10];
-        for (int i = 0; i < array.length; i++) {
-            newarray[i] = array[i];
-        }
-        array = newarray;
+        Employee[] tmp = new Employee[employees.length + 10];
+        System.arraycopy(employees,0,tmp,0,employees.length+10);
+        employees = tmp;
     }
 
 
     public void print() {
         for (int i = 0; i < size; i++) {
-            System.out.println(array[i] + " ");
+            System.out.println(employees[i] + " ");
         }
 
     }
-    public Object search(String ID) {
-        boolean search = false;
-        for (int i = 0; i < size; i++) {
-            Employee employee = array[i];
-            if (employee.getEmplyeeID().toLowerCase().contains(ID.toLowerCase())) {
-                search = true;
-                System.out.println(employee);
-            }
-        } return null;
 
+    public Employee search(String ID) {
+        for (int i = 0; i < size; i++) {
+            Employee employee = employees[i];
+            if (employees[i].getID().equals(ID)) {
+               return employee;
+            }
+    }
+
+        return null;
     }
 
 
     public void searchCompany(String companyy) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
-            Employee employee = array[i];
+            Employee employee = employees[i];
             if (employee.getCompany().toLowerCase().contains(companyy.toLowerCase())) {
                 found = true;
                 System.out.println(employee);
@@ -52,6 +50,5 @@ public class EmployeStorage {
         if (!found) {
             System.out.println(companyy + " does not exists");
         }
-
     }
-}
+    }

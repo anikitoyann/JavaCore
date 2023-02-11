@@ -47,7 +47,6 @@ public class EmployeeDemo {
             }
         }
     }
-
     public static void AddEmploye() {
         Employee employee = new Employee();
         System.out.println("Please input employee name");
@@ -56,10 +55,11 @@ public class EmployeeDemo {
         String surname = scanner.nextLine();
         System.out.println("Please input ID A1+...");
         String ID = scanner.nextLine();
-        if (!ID.startsWith("A1"))   {
-            System.err.println("wrong gender");
+        if(!ID.startsWith("A1")){
+            System.out.println("should begin with A1");
             return;
         }
+
         System.out.println("Please input employee salary");
         int salary = Integer.parseInt(scanner.nextLine());
         System.out.println("Please input employee company");
