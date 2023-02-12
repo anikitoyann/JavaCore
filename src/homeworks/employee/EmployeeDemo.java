@@ -28,7 +28,7 @@ public class EmployeeDemo {
                     isRun = false;
                     break;
                 case "1":
-                    AddEmploye();
+                    addEmploye();
                     break;
                 case "2":
                     employeStorage.print();
@@ -111,7 +111,7 @@ public class EmployeeDemo {
     }
 
 
-    public static void AddEmploye() {
+    public static void addEmploye() {
 
         System.out.println("Please input employee name,surname,ID(A1),salary,company,position");
         String emploeeDataStr = scanner.nextLine();

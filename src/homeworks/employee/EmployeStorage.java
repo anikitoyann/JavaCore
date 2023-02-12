@@ -30,9 +30,7 @@ public class EmployeStorage {
     public Employee getID(String id) {
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
-
             if (employee.getID().equals(id)) {
-
                 return employee;
             }
         }
