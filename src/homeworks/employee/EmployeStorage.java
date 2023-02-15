@@ -27,7 +27,7 @@ public class EmployeStorage {
 
     }
 
-    public Employee getID(String id) {
+    public Employee getEmplooyebyID(String id) {
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
             if (employee.getID().equals(id)) {
@@ -38,8 +38,7 @@ public class EmployeStorage {
         return null;
     }
 
-
-    public void searchCompany(String companyy) {
+    public void searchEmployeeByCompanyName(String companyy) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
@@ -53,42 +52,23 @@ public class EmployeStorage {
         }
     }
 
-    public void searchSalary(int a, int b) {
+
+    public void printByStatus(boolean isActiv) {
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
-            if (employee.getSalary() >= a && employee.getSalary() <= b) {
-                System.out.println(employee);
+            if (employee.isActive() == isActiv) {
+                System.out.println(employees[i] + " ");
             }
         }
-
     }
 
-    public void add(String position) {
+    public void searchBySeleryRange(double minPrice, double maxPrice) {
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
-            employee.setPosition(position);
-            System.out.println(employee);
-        }
-    }
-
-    public void addActiv(String aktiv) {
-        for (int i = 0; i < size; i++) {
-            Employee employee = employees[i];
-            employee.setActive(Boolean.parseBoolean(aktiv));
-            System.out.println(employee);
-        }
-
-    }
-
-    public void printActiv() {
-        boolean isActiv = true;
-        for (int i = 0; i < size; i++) {
-            Employee employee = employees[i];
-            if (employee.isActive()) {
-                System.out.println(employees[i] + " ");
-            } else {
-                System.out.println("dosent activ true");
+            if (employee.getSalary() >= minPrice && employee.getSalary() <= maxPrice) {
+                System.out.println(employee);
             }
         }
     }
 }
+
