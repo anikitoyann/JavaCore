@@ -146,6 +146,7 @@ public class EmployeeDemo {
         String[] emploeeData = emploeeDataStr.split(",");
         String id = emploeeData[2];
         Date data=new Date();
+        String dateStr=sdf.format(data);
         String myDataStr=emploeeData[6];
         Date dataOfBirthday=sdf.parse(myDataStr);
         Employee employeeById = employeStorage.getEmplooyebyID(id);
