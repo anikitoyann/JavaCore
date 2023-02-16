@@ -3,17 +3,18 @@ package homeworks.employee;
 import chapter5.Switch;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class EmployeeDemo {
     static Scanner scanner = new Scanner(System.in);
     static EmployeStorage employeStorage = new EmployeStorage();
+    static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
-    public static void main(String[] args) {
-
-        employeStorage.add(new Employee("Ani", "Kitoyan", "a1a", 125, "epam", "jr.manager"));
-        employeStorage.add(new Employee("Ani", "Kitoyan", "a2a", 1205, "epam", "manager"));
+    public static void main(String[] args) throws ParseException {
         boolean isRun = true;
         while (isRun) {
             printCommands();
@@ -139,14 +140,18 @@ public class EmployeeDemo {
     }
 
 
-    public static void addEmploye() {
-        System.out.println("Please input employee name,surname,ID(A1),salary,company,position");
+    public static void addEmploye() throws ParseException {
+        System.out.println("Please input employee name,surname,ID(A1),salary,company,position,dataBirthday(dd-MM-yyyy)");
         String emploeeDataStr = scanner.nextLine();
         String[] emploeeData = emploeeDataStr.split(",");
         String id = emploeeData[2];
+        Date data=new Date();
+        String dateStr=sdf.format(data);
+        String myDataStr=emploeeData[6];
+        Date parse=sdf.parse(myDataStr);
         Employee employeeById = employeStorage.getEmplooyebyID(id);
         if (employeeById == null) {
-            Employee employee = new Employee(emploeeData[0], emploeeData[1], emploeeData[2], Integer.parseInt(emploeeData[3]), emploeeData[4], emploeeData[5]);
+            Employee employee = new Employee(emploeeData[0], emploeeData[1], emploeeData[2], Integer.parseInt(emploeeData[3]), emploeeData[4], emploeeData[5],parse);
             employeStorage.add(employee);
             System.out.println("Emploee was added");
         } else {
