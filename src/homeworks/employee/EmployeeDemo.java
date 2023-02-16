@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class EmployeeDemo {
     static Scanner scanner = new Scanner(System.in);
     static EmployeStorage employeStorage = new EmployeStorage();
-    static SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     public static void main(String[] args) throws ParseException {
         boolean isRun = true;
@@ -141,7 +141,7 @@ public class EmployeeDemo {
 
 
     public static void addEmploye() throws ParseException {
-        System.out.println("Please input employee name,surname,ID(A1),salary,company,position,dataBirthday(dd-MM-yyyy)");
+        System.out.println("Please input employee name,surname,ID(A1),salary,company,position,dataBirthday(dd/MM/yyyy)");
         String emploeeDataStr = scanner.nextLine();
         String[] emploeeData = emploeeDataStr.split(",");
         String id = emploeeData[2];
