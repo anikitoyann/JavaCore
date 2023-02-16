@@ -148,10 +148,10 @@ public class EmployeeDemo {
         Date data=new Date();
         String dateStr=sdf.format(data);
         String myDataStr=emploeeData[6];
-        Date parse=sdf.parse(myDataStr);
+        Date dataOfBirthday=sdf.parse(myDataStr);
         Employee employeeById = employeStorage.getEmplooyebyID(id);
         if (employeeById == null) {
-            Employee employee = new Employee(emploeeData[0], emploeeData[1], emploeeData[2], Integer.parseInt(emploeeData[3]), emploeeData[4], emploeeData[5],parse);
+            Employee employee = new Employee(emploeeData[0], emploeeData[1], emploeeData[2], Integer.parseInt(emploeeData[3]), emploeeData[4], emploeeData[5],dataOfBirthday);
             employeStorage.add(employee);
             System.out.println("Emploee was added");
         } else {
