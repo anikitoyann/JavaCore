@@ -1,4 +1,10 @@
-package homeworks.employee;
+package homeworks.employee.storage;
+
+import homeworks.employee.model.Company;
+import homeworks.employee.model.Employee;
+import homeworks.employee.util.DateUtil;
+
+import java.util.Date;
 
 public class EmployeStorage {
     private Employee[] employees = new Employee[10];
@@ -30,7 +36,7 @@ public class EmployeStorage {
     public Employee getEmplooyebyID(String id) {
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
-            if (employee.getID().equals(id)) {
+            if (employee.getEmployeeID().equals(id)) {
                 return employee;
             }
         }
@@ -38,17 +44,12 @@ public class EmployeStorage {
         return null;
     }
 
-    public void searchEmployeeByCompanyName(String companyy) {
-        boolean found = false;
+    public void searchEmployeeByCompany(Company company) {
         for (int i = 0; i < size; i++) {
             Employee employee = employees[i];
-            if (employee.getCompany().toLowerCase().contains(companyy.toLowerCase())) {
-                found = true;
+            if (employee.getCompany().equals(company)) {
                 System.out.println(employee);
             }
-        }
-        if (!found) {
-            System.out.println(companyy + " does not exists");
         }
     }
 
@@ -69,6 +70,8 @@ public class EmployeStorage {
                 System.out.println(employee);
             }
         }
+
+
     }
 }
 

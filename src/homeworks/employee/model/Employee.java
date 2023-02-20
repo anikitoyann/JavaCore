@@ -1,5 +1,7 @@
-package homeworks.employee;
+package homeworks.employee.model;
 
+
+import homeworks.employee.util.DateUtil;
 
 import java.util.Date;
 import java.util.Objects;
@@ -7,22 +9,23 @@ import java.util.Objects;
 public class Employee {
     private String name;
     private String surname;
-    private String ID;
+    private String employeeID;
     private double salary;
-    private String company;
+    private Company company;
     private String position;
     private boolean active = true;
-    private Date registerDate=new Date();
+    private Date registerDate;
     private Date dateOfBirthday;
 
-    public Employee(String name, String surname, String ID, double salary, String company, String position,Date dateOfBirthday) {
+    public Employee(String name, String surname, String ID, double salary, Company company, String position, Date registerDate, Date dateOfBirthday) {
         this.name = name;
         this.surname = surname;
-        this.ID = ID;
+        this.employeeID = ID;
         this.salary = salary;
         this.company = company;
         this.position = position;
-        this.dateOfBirthday=dateOfBirthday;
+        this.registerDate = registerDate;
+        this.dateOfBirthday = dateOfBirthday;
     }
 
     public boolean isActive() {
@@ -68,12 +71,12 @@ public class Employee {
         this.surname = surname;
     }
 
-    public String getID() {
-        return ID;
+    public String getEmployeeID() {
+        return employeeID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setEmployeeID(String employeeID) {
+        this.employeeID = employeeID;
     }
 
     public double getSalary() {
@@ -84,11 +87,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getCompany() {
+    public Company getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(Company company) {
         this.company = company;
     }
 
@@ -111,7 +114,7 @@ public class Employee {
         if (active != employee.active) return false;
         if (!Objects.equals(name, employee.name)) return false;
         if (!Objects.equals(surname, employee.surname)) return false;
-        if (!Objects.equals(ID, employee.ID)) return false;
+        if (!Objects.equals(employeeID, employee.employeeID)) return false;
         if (!Objects.equals(company, employee.company)) return false;
         if (!Objects.equals(position, employee.position)) return false;
         if (!Objects.equals(registerDate, employee.registerDate))
@@ -125,7 +128,7 @@ public class Employee {
         long temp;
         result = name != null ? name.hashCode() : 0;
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        result = 31 * result + (ID != null ? ID.hashCode() : 0);
+        result = 31 * result + (employeeID != null ? employeeID.hashCode() : 0);
         temp = Double.doubleToLongBits(salary);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (company != null ? company.hashCode() : 0);
@@ -141,12 +144,12 @@ public class Employee {
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", ID='" + ID + '\'' +
+                ", employeeID='" + employeeID + '\'' +
                 ", salary=" + salary +
-                ", company='" + company + '\'' +
+                ", company=" + company +
                 ", position='" + position + '\'' +
                 ", active=" + active +
-                ", RegisterDate=" +registerDate +
+                ", registerDate=" + registerDate +
                 ", dateOfBirthday=" + dateOfBirthday +
                 '}';
     }

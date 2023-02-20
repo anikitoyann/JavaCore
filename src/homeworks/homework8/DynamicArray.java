@@ -5,7 +5,7 @@ public class DynamicArray {
     private int size = 0;
 
     public void add(int value) {
-        if (size == array.length - 1) {
+        if ( size==array.length - 1) {
             extend();
         }
         array[size] = value;
