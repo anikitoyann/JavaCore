@@ -37,6 +37,9 @@ public class PatientStorage {
             Patient patient = patients[i];
             if (patient.getRegisterDateTime().equals(date)) {
                 System.out.println(patient);
+            } else {
+                System.out.println("There are no registered users today");
+
             }
         }
     }

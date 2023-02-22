@@ -48,15 +48,19 @@ public class MedialCenterDemo implements Commands {
                     print_all_patients();
                     break;
                 case PRINT_TODAYES_PATIENTS:
-                    System.out.println("please input today day");
-                    String date= scanner.nextLine();
-                    Date datte=sdf.parse(date);
-                    patientStorage.print(datte);
+                    today_Patients();
                     break;
                 default:
                     System.out.println("Wrong index,Try again");
             }
         }
+    }
+
+    private static void today_Patients() throws ParseException {
+        System.out.println("please input today day");
+        String date= scanner.nextLine();
+        Date datte=sdf.parse(date);
+        patientStorage.print(datte);
     }
 
     private static void print_all_patients() {
