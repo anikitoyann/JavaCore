@@ -149,8 +149,8 @@ public class Employee {
                 ", company=" + company +
                 ", position='" + position + '\'' +
                 ", active=" + active +
-                ", registerDate=" + registerDate +
-                ", dateOfBirthday=" + dateOfBirthday +
+                ", registerDate=" + DateUtil.dateString(registerDate)+
+                ", dateOfBirthday=" + DateUtil.dateString(dateOfBirthday) +
                 '}';
     }
 }

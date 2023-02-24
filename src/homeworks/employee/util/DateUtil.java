@@ -8,6 +8,7 @@ public class DateUtil {
     public static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     public static String dateString(Date date) {
+
         if (date == null) {
             return null;
         }
@@ -20,5 +21,6 @@ public class DateUtil {
         }
         return sdf.parse(dataStr);
     }
+
 
 }

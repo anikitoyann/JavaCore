@@ -40,7 +40,7 @@ public class CompanyStorage {
 
         return null;
     }
-    public int getSize(){
+    public  int getSize(){
         return size;
     }
 }
