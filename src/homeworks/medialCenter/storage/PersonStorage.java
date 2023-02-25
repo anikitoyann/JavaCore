@@ -3,23 +3,112 @@ package homeworks.medialCenter.storage;
 import homeworks.medialCenter.model.Doctor;
 import homeworks.medialCenter.model.Patient;
 import homeworks.medialCenter.model.Person;
+import homeworks.medialCenter.util.DateUtil;
 
 import java.util.Date;
 
 public class PersonStorage {
 
     private Person[] persons = new Person[10];
-    private int size = 0;
-    Person person1 = new Patient();
-    Person person2 = new Doctor();
+    private int size;
 
-
-    public void add(Person value) {
+    public void add(Person person) {
         if (size == persons.length) {
             extend();
         }
 
-        persons[size++] = value;
+        persons[size++] = person;
+    }
+
+
+    public void printDoctors() {
+        for (int i = 0; i < size; i++) {
+            Person person = persons[i];
+            if (persons[i] instanceof Doctor) {
+                System.out.println(person + " ");
+            }
+        }
+    }
+
+    public void printPatients() {
+        for (int i = 0; i < size; i++) {
+            Person person = persons[i];
+            if (persons[i] instanceof Patient) {
+                System.out.println(person + " ");
+            }
+        }
+
+
+    }
+
+
+    public void searchDoctorByProfession(String profession) {
+        for (int i = 0; i < size; i++) {
+            if (persons[i] instanceof Doctor) {
+                Doctor doctor = (Doctor) persons[i];
+                if (doctor.getProfession().equals(profession)) {
+                    System.out.println(doctor);
+                } else {
+                    System.out.println("doctor" + profession + "does exists");
+                }
+            }
+        }
+    }
+
+
+    public void deleteDoctorById(String id) {
+        for (int i = 0; i < size; i++) {
+            Person person = persons[i];
+            if (person instanceof Doctor && person.getId().equals(id)) {
+                deletePersonByIndex(i);
+            }
+        }
+    }
+
+    public Doctor getDoctorById(String id) {
+        for (int i = 0; i < size; i++) {
+            Person person = persons[i];
+            if (person instanceof Doctor && person.getId().equals(id)) {
+                return (Doctor) persons[i];
+            }
+        }
+        return null;
+    }
+
+    public void searchPatientsDoctor(Doctor doctor) {
+        for (int i = 0; i < size; i++) {
+            Person person = persons[i];
+            if (person instanceof Patient) {
+                Patient patient = (Patient) person;
+                if (patient.getDoctor().equals(doctor)) {
+                    System.out.println(persons);
+                }
+            }
+        }
+    }
+
+    public void printTodayPatients() {
+        Date today = new Date();
+        for (int i = 0; i < size; i++) {
+            if (persons[i] instanceof Patient) {
+                Patient patient = (Patient) persons[i];
+                if (DateUtil.isSameDay(today, patient.getRegisterDateTime())) {
+                    System.out.println(patient);
+                }
+            }
+        }
+    }
+
+    public boolean isDoctorAvailable(Date registerDateTime, Doctor doctor) {
+        for (int i = 0; i < size; i++) {
+            if (persons[i] instanceof Patient) {
+                Patient patient = (Patient) persons[i];
+                if (patient.getDoctor().equals(doctor) && patient.getRegisterDateTime().equals(registerDateTime))
+                    return false;
+
+            }
+        }
+        return true;
     }
 
     private void extend() {
@@ -28,50 +117,12 @@ public class PersonStorage {
         persons = tmp;
     }
 
-
-    public void printDoctor() {
-
-        for (int i = 0; i < size; i++) {
-            Person person = persons[i];
-            System.out.println(persons[i] + " ");
-        }
-
-    }
-
-
-    public Person getid(String id) {
-        for (int i = 0; i < size; i++) {
-            Person person = persons[i];
-            if (person.getId().equals(id)) {
-                return persons[i];
-            }
-        }
-        return null;
-    }
-
-
-    public void searchDoctor(String profession) {
-        for (int i = 0; i < size; i++) {
-            if (persons[i] instanceof Person) {
-                Doctor doctor1 = (Doctor) persons[i];
-                if (doctor1.getProfession().equals(profession)) {
-                    System.out.println(doctor1);
-                } else System.out.println("doctor" + profession + "does exists");
-            }
-        }
-    }
-
-    public void deleteDoctor(String id) {
-        for (int i = 0; i < size; i++) {
-
-            Doctor doctor1 = (Doctor) persons[i];
-            persons[i] = persons[i + 1];
+    private void deletePersonByIndex(int i) {
+        for (int j = i; j < size; j++) {
+            persons[j] = persons[j + 1];
         }
         size--;
-    }
 
-    public int Getsize() {
-        return size;
     }
 
 

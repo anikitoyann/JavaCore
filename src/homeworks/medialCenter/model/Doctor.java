@@ -53,7 +53,10 @@ public class Doctor extends Person {
 
     @Override
     public String toString() {
-        return "Doctor{} " + super.toString();
+        return "Doctor{" +
+                "email='" + email + '\'' +
+                ", profession='" + profession + '\'' +
+                "} " + super.toString();
     }
 }
 

@@ -2,17 +2,18 @@ package homeworks.medialCenter.model;
 
 import java.util.Objects;
 
-public class Person {
+public abstract class Person {
+    private String id;
     private String name;
     private String surname;
-    private String phoneNumber;
-    private String id;
+    private String phone;
 
-    public Person(String id, String name, String surname, String phoneNumber) {
+
+    public  Person(String id, String name, String surname, String phone) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
 
     }
 
@@ -36,8 +37,8 @@ public class Person {
         this.surname = surname;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
     public String getId() {
@@ -48,8 +49,8 @@ public class Person {
         this.id = id;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
 
     }
 
@@ -62,7 +63,7 @@ public class Person {
 
         if (!Objects.equals(name, persen.name)) return false;
         if (!Objects.equals(surname, persen.surname)) return false;
-        if (!Objects.equals(phoneNumber, persen.phoneNumber)) return false;
+        if (!Objects.equals(phone, persen.phone)) return false;
         return Objects.equals(id, persen.id);
     }
 
@@ -70,7 +71,7 @@ public class Person {
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (id != null ? id.hashCode() : 0);
         return result;
     }
@@ -80,7 +81,7 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                ", phoneNumber='" + phone + '\'' +
                 ", id='" + id + '\'' +
                 '}';
     }

@@ -9,8 +9,8 @@ public class Patient extends Person {
     private Doctor doctor;
     private Date registerDateTime;
 
-    public Patient(String id, String name, String surname,String phoneNumber, Doctor doctor, Date registerDateTime) {
-        super(id,name,surname,phoneNumber);
+    public Patient(String id, String name, String surname, String phoneNumber, Date registerDateTime) {
+        super(id, name, surname, phoneNumber);
         this.doctor = doctor;
         this.registerDateTime = registerDateTime;
     }
@@ -57,9 +57,9 @@ public class Patient extends Person {
 
     @Override
     public String toString() {
-        return super.toString()+"Patient{" +
+        return super.toString() + "Patient{" +
                 "doctor=" + doctor +
-                ", registerDateTime=" + registerDateTime +
-                "} " ;
+                ", registerDateTime=" + DateUtil.dateTimeToString(registerDateTime) +
+                "} ";
     }
 }
