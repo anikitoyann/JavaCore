@@ -80,12 +80,11 @@ public class PersonStorage {
             Person person = persons[i];
             if (person instanceof Patient) {
                 Patient patient = (Patient) person;
-                if (patient.getDoctor().equals(doctor)) {
-                    System.out.println(persons);
+                if (((Patient) person).getDoctor() != null && patient.getDoctor().equals(doctor)) {
+                    System.out.println(patient);
                 }
             }
-        }
-    }
+        }}
 
     public void printTodayPatients() {
         Date today = new Date();

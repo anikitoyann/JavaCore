@@ -58,14 +58,13 @@ public class MedialCenterDemo implements Commands {
         System.out.println("Please choose doctorID");
         String id = scanner.nextLine();
         Doctor doctor = personStorage.getDoctorById(id);
-        if (doctor != null) {
-            personStorage.searchPatientsDoctor(doctor);
-        } else {
+        if (doctor == null) {
             System.out.println("Wrong doctor " + id + "Try agayin");
+        } else {
+            personStorage.searchPatientsDoctor(doctor);
         }
 
     }
-
 
 
     private static void add_Patinet() throws ParseException {
@@ -79,13 +78,16 @@ public class MedialCenterDemo implements Commands {
             String[] patientData = patientDataStr.split(",");
             Date registrDateTime = DateUtil.stringToDateTime(patientData[4]);
             if (personStorage.isDoctorAvailable(registrDateTime, doctor)) {
-                try {
-                    Patient patient = new Patient(patientData[0], patientData[1], patientData[2], patientData[3], DateUtil.stringToDateTime(patientData[4]));
-                    personStorage.add(patient);
-                    System.out.println("Patient registered!!!");
-                } catch (ParseException e) {
-                    System.out.println("Incorrect registerDate time,please try again!!!");
-                }
+                Patient patient = new Patient();
+                patient.setId(patientData[0]);
+                patient.setName(patientData[1]);
+                patient.setSurname(patientData[2]);
+                patient.setSurname(patientData[3]);
+                patient.setPhone(patientData[4]);
+                patient.setDoctor(doctor);
+                patient.setRegisterDateTime(registrDateTime);
+                personStorage.add(patient);
+                System.out.println("Patient registered!!!");
             } else {
                 System.out.println("Doctor is unAvailable in that date time, please choose another");
             }
