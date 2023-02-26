@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Doctor extends Person {
     private String email;
-    private String profession;
+    private Proffesion profession;
 
-    public Doctor(String id, String name, String surname, String email, String phoneNumber, String profession) {
+    public Doctor(String id, String name, String surname, String email, String phoneNumber, Proffesion profession) {
         super(id,name,surname,phoneNumber);
         this.email = email;
         this.profession = profession;
@@ -23,11 +23,11 @@ public class Doctor extends Person {
         this.email = email;
     }
 
-    public String getProfession() {
+    public Proffesion getProfession() {
         return profession;
     }
 
-    public void setProfession(String profession) {
+    public void setProfession(Proffesion profession) {
         this.profession = profession;
     }
 

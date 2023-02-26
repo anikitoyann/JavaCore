@@ -1,8 +1,10 @@
 package homeworks.medialCenter;
 
+import chapter1.Language;
 import homeworks.medialCenter.model.Doctor;
 import homeworks.medialCenter.model.Patient;
 import homeworks.medialCenter.model.Person;
+import homeworks.medialCenter.model.Proffesion;
 import homeworks.medialCenter.storage.PersonStorage;
 import homeworks.medialCenter.util.DateUtil;
 
@@ -110,7 +112,7 @@ public class MedialCenterDemo implements Commands {
             doctorById.setSurname(doctorData[1]);
             doctorById.setEmail(doctorData[2]);
             doctorById.setPhone(doctorData[3]);
-            doctorById.setProfession(doctorData[4]);
+            doctorById.setProfession(Proffesion.valueOf(doctorData[4]));
             System.out.println("doctor was updated");
         } else {
             System.out.println("doctor is" + doctorID + "does not exists!!!");
@@ -140,19 +142,36 @@ public class MedialCenterDemo implements Commands {
     }
 
     private static void add_doctor() {
-        System.out.println("please input id,name,surname,email,phoneNumber,professia");
+        System.out.println("please input id,name,surname,phone,email,professia");
+        Proffesion[] proffesions = Proffesion.values();
+        System.out.println("please choose proffesion");
+        for (Proffesion proffesion : proffesions) {
+            System.out.println(proffesion);
+        }
         String doctorDataStr = scanner.nextLine();
         String[] doctorData = doctorDataStr.split(",");
         String doctorId = doctorData[0];
-        Doctor doctorById = (Doctor) personStorage.getDoctorById(doctorId);
+        Doctor doctorById = personStorage.getDoctorById(doctorId);
         if (doctorById == null) {
-            Doctor doctor = new Doctor(doctorId, doctorData[1], doctorData[2], doctorData[3], doctorData[4], doctorData[5]);
-            personStorage.add(doctor);
-            System.out.println("doctor added");
+            Doctor doctor = new Doctor();
+            doctor.setId(doctorId);
+            doctor.setName(doctorData[1]);
+            doctor.setSurname(doctorData[2]);
+            doctor.setPhone(doctorData[3]);
+            doctor.setEmail(doctorData[4]);
+            try {
+                doctor.setProfession(Proffesion.valueOf(doctorData[5]));
+                personStorage.add(doctor);
+                System.out.println("doctor added");
+            } catch (IllegalArgumentException e) {
+                System.out.println("Proffesion is wrong");
+                System.out.println("Try agayin");
+            }
+
+
         } else {
             System.out.println("Doctor with" + doctorId + "already exsist");
         }
-
     }
 }
 
