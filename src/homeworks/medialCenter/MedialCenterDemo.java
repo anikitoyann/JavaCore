@@ -122,10 +122,19 @@ public class MedialCenterDemo implements Commands {
 
 
     private static void searchDoctorByProfession() {
-        System.out.println("please input proffesion");
-        String profession = scanner.nextLine();
-        personStorage.searchDoctorByProfession(profession);
-        System.out.println("search result found");
+        Proffesion[] proffesions = Proffesion.values();
+        System.out.println("please choose proffesion");
+        for (Proffesion proffesion : proffesions) {
+            System.out.println(proffesion);
+        }
+        try {
+            String profession = scanner.nextLine();
+            personStorage.searchDoctorByProfession(Proffesion.valueOf(profession));
+            System.out.println("search result found");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Proffesion is wrong");
+        }
+
     }
 
     private static void deleteDoctorbyid() {

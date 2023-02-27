@@ -3,6 +3,7 @@ package homeworks.medialCenter.storage;
 import homeworks.medialCenter.model.Doctor;
 import homeworks.medialCenter.model.Patient;
 import homeworks.medialCenter.model.Person;
+import homeworks.medialCenter.model.Proffesion;
 import homeworks.medialCenter.util.DateUtil;
 
 import java.util.Date;
@@ -42,7 +43,7 @@ public class PersonStorage {
     }
 
 
-    public void searchDoctorByProfession(String profession) {
+    public void searchDoctorByProfession(Proffesion profession) {
         for (int i = 0; i < size; i++) {
             if (persons[i] instanceof Doctor) {
                 Doctor doctor = (Doctor) persons[i];
