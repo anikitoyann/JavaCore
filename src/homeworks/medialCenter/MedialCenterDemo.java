@@ -54,7 +54,6 @@ public class MedialCenterDemo implements Commands {
         }
     }
 
-
     private static void print_All_PatientsByDoctor() {
         personStorage.printDoctors();
         System.out.println("Please choose doctorID");
@@ -67,7 +66,6 @@ public class MedialCenterDemo implements Commands {
         }
 
     }
-
 
     private static void add_Patinet() throws ParseException {
         personStorage.printDoctors();
