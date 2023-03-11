@@ -1,5 +1,6 @@
 package homeworks.collection;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,16 +34,20 @@ public class CollectionExample1 {
             System.out.println("Wrong names");
             return;
         }
-
         System.out.println("Please input Index && Name for add");
-        String nameeDataStr = scanner.nextLine();
-        String[] nameData = nameeDataStr.split(",");
-        String index = nameData[0];
-        String name2 = nameData[1];
-        names.set(Integer.parseInt(index), name2);
-        for (String s : names) {
-            System.out.println(s);
-
+        try {
+            String nameeDataStr = scanner.nextLine();
+            String[] nameData = nameeDataStr.split(",");
+            String index = nameData[0];
+            String name2 = nameData[1];
+            names.set(Integer.parseInt(index), name2);
+            for (String s : names) {
+                System.out.println(s);
+            }
+        } catch (IndexOutOfBoundsException exc) {
+            System.out.println("no such index! Try agayin");
+        } catch (NumberFormatException exc) {
+            System.out.println("Format Exception ,Try agayin");
         }
     }
 }
