@@ -32,19 +32,9 @@ public class CollectionExample2 {
         TreeSet<String> sortName = new TreeSet<>();
         System.out.println("Please input 10 name");
         try {
-
             String sortname = scanner.nextLine();
             String[] sortNameData = sortname.split(",");
-            sortName.add(sortNameData[0]);
-            sortName.add(sortNameData[1]);
-            sortName.add(sortNameData[2]);
-            sortName.add(sortNameData[3]);
-            sortName.add(sortNameData[4]);
-            sortName.add(sortNameData[5]);
-            sortName.add(sortNameData[6]);
-            sortName.add(sortNameData[7]);
-            sortName.add(sortNameData[8]);
-            sortName.add(sortNameData[9]);
+            Collections.addAll(sortName, sortNameData);
         } catch (ArrayIndexOutOfBoundsException exc) {
             System.out.println("Incorrect number of element!!!Please try agayin");
             return;

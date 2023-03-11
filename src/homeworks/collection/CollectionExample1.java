@@ -14,26 +14,12 @@ public class CollectionExample1 {
         names.add("Vardan");
         names.add("Hayastan");
 
-        System.out.println("Input name to search");
-        String name = scanner.nextLine();
-        if (names.contains(name)) {
-            System.out.println(name);
-        } else {
-            System.out.println(name + "is not in the list");
-            return;
-        }
+        if (searchName(scanner, names)) return;
+        if (deleteName(scanner, names)) return;
+        setIndexName(scanner, names);
+    }
 
-        System.out.println("Input name to Delete");
-        String name1 = scanner.nextLine();
-        if (names.contains(name1)) {
-            names.remove(name1);
-            for (String s : names) {
-                System.out.println(s);
-            }
-        } else {
-            System.out.println("Wrong names");
-            return;
-        }
+    private static void setIndexName(Scanner scanner, ArrayList<String> names) {
         System.out.println("Please input Index && Name for add");
         try {
             String nameeDataStr = scanner.nextLine();
@@ -49,5 +35,32 @@ public class CollectionExample1 {
         } catch (NumberFormatException exc) {
             System.out.println("Format Exception ,Try agayin");
         }
+    }
+
+    private static boolean deleteName(Scanner scanner, ArrayList<String> names) {
+        System.out.println("Input name to Delete");
+        String name1 = scanner.nextLine();
+        if (names.contains(name1)) {
+            names.remove(name1);
+            for (String s : names) {
+                System.out.println(s);
+            }
+        } else {
+            System.out.println("Wrong names");
+            return true;
+        }
+        return false;
+    }
+
+    private static boolean searchName(Scanner scanner, ArrayList<String> names) {
+        System.out.println("Input name to search");
+        String name = scanner.nextLine();
+        if (names.contains(name)) {
+            System.out.println(name);
+        } else {
+            System.out.println(name + "is not in the list");
+            return true;
+        }
+        return false;
     }
 }
