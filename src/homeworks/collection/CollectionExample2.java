@@ -29,7 +29,7 @@ public class CollectionExample2 {
         System.out.println();
 
 
-        TreeSet<String> sortName = new TreeSet<>();
+        Set<String> sortName = new TreeSet<>();
         System.out.println("Please input 10 name");
         try {
             String sortname = scanner.nextLine();

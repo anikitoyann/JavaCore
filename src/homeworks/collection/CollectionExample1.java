@@ -1,22 +1,22 @@
 package homeworks.collection;
 
-import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CollectionExample1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<String> names = new ArrayList<>();
+        List<String> names = new ArrayList<>();
         names.add("Ani");
         names.add("Gayane");
         names.add("Ashot");
         names.add("Vardan");
         names.add("Hayastan");
 
-        if (searchName(scanner, names)) return;
-        if (deleteName(scanner, names)) return;
-        setIndexName(scanner, names);
+        if (isName(scanner, (ArrayList<String>) names)) return;
+        if (isDelete(scanner, (ArrayList<String>) names)) ;
+        setIndexName(scanner, (ArrayList<String>) names);
     }
 
     private static void setIndexName(Scanner scanner, ArrayList<String> names) {
@@ -37,22 +37,20 @@ public class CollectionExample1 {
         }
     }
 
-    private static boolean deleteName(Scanner scanner, ArrayList<String> names) {
+    private static boolean isDelete(Scanner scanner, ArrayList<String> names) {
         System.out.println("Input name to Delete");
         String name1 = scanner.nextLine();
-        if (names.contains(name1)) {
-            names.remove(name1);
-            for (String s : names) {
-                System.out.println(s);
-            }
-        } else {
-            System.out.println("Wrong names");
-            return true;
+        names.remove(name1);
+        for (String s : names) {
+            System.out.println(s);
+
         }
-        return false;
+        return true;
+
     }
 
-    private static boolean searchName(Scanner scanner, ArrayList<String> names) {
+
+    private static boolean isName(Scanner scanner, ArrayList<String> names) {
         System.out.println("Input name to search");
         String name = scanner.nextLine();
         if (names.contains(name)) {
