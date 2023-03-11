@@ -1,6 +1,10 @@
 package chapter14;
 
-public class Student {
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
+
+public class Student implements Comparable<Student> {
     private String name;
     private String surname;
     private int age;
@@ -39,6 +43,26 @@ public class Student {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+
+        Student student = (Student) o;
+
+        if (age != student.age) return false;
+        if (!Objects.equals(name, student.name)) return false;
+        return Objects.equals(surname, student.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        result = 31 * result + age;
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Student{" +
                 "name='" + name + '\'' +
@@ -46,4 +70,14 @@ public class Student {
                 ", age=" + age +
                 '}';
     }
-}
+
+    @Override
+    public int compareTo(@NotNull Student o) {
+        if (age == o.age) {
+            return 0;
+        }
+        if (age < o.age) {
+            return -1;
+        }
+        return 1;
+    }}
