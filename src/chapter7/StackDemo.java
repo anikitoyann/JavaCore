@@ -10,11 +10,11 @@ public class StackDemo {
        for(int i=0;i<20;i++){
            mystack2.push(i);
        }
-        System.out.println("Stack mystack1");
+        System.out.println("chapter2.Stack mystack1");
        for(int i=0;i<10;i++){
            System.out.println(mystack1.pop(i));
        }
-        System.out.println("Stack mystack2");
+        System.out.println("chapter2.Stack mystack2");
        for(int i=0;i<10;i++){
            System.out.println(mystack2.pop(i));
        }

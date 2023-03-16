@@ -1,21 +1,14 @@
 package chapter14;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Objects;
 
-public class Student implements Comparable<Student> {
-    private String name;
-    private String surname;
-    private int age;
+public class Person {
+   private String name;
+   private String surname;
 
-    public Student(String name, String surname, int age) {
+    public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.age = age;
-    }
-
-    public Student() {
     }
 
     public String getName() {
@@ -34,45 +27,29 @@ public class Student implements Comparable<Student> {
         this.surname = surname;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Student)) return false;
+        if (!(o instanceof Person)) return false;
 
-        Student student = (Student) o;
+        Person person = (Person) o;
 
-        if (age != student.age) return false;
-        if (!Objects.equals(name, student.name)) return false;
-        return Objects.equals(surname, student.surname);
+        if (!Objects.equals(name, person.name)) return false;
+        return Objects.equals(surname, person.surname);
     }
 
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        result = 31 * result + age;
         return result;
     }
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Person{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", age=" + age +
                 '}';
-    }
-
-    @Override
-    public int compareTo(@NotNull Student o) {
-        return 0;
     }
 }
