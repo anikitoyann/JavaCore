@@ -9,9 +9,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class FileUtil implements Command {
-
     private static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) throws IOException {
 
         boolean isRun = true;
