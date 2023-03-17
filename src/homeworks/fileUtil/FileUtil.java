@@ -36,6 +36,9 @@ public class FileUtil implements Command {
                 case FIND_LINES:
                     findLines();
                     break;
+                case "10":
+                    contentSearch();
+                    break;
                 default:
                     System.out.println("Wrong command");
             }
@@ -80,69 +83,70 @@ public class FileUtil implements Command {
         String folderPath = scanner.nextLine();
         System.out.println("Please input keyword");
         String keyword = scanner.nextLine();
-
-        File directory = new File(folderPath);
-        if (directory.exists() && directory.isDirectory()) {
-            File file = new File(folderPath);
-            if (file.getName().contains("txt")) {
-                try (BufferedReader br = new BufferedReader(new FileReader(folderPath))) {
-                    String line = "";
-                    if ((line = br.readLine()).contains(keyword)) {
-                        System.out.println(file.getName());
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(file.getName());
-            } else {
-                System.out.println("no txt.file");
-            }
-        }
-    }
-
-    static void findLines() {
-        System.out.println("Please input file.txt Path");
-        String txtPath = scanner.nextLine();
-        System.out.println("Please input keyword");
-        String keyword = scanner.nextLine();
-        try (BufferedReader br = new BufferedReader(new FileReader(txtPath))) {
-            String line = "";
-            if ((line = br.readLine()).contains(keyword)) {
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    static void createFileWithContent() throws IOException {
-        System.out.println("Please input folderPath");
-        String folderPath = scanner.nextLine();
-        System.out.println("Please input FileName");
-        String fileName = scanner.nextLine();
-        System.out.println("The Contents of the file");
-        String contents = scanner.nextLine();
         try {
             File directory = new File(folderPath);
             if (directory.exists() && directory.isDirectory()) {
-                File file = new File(directory, fileName);
-                if (file.createNewFile()) {
-                    FileWriter writer = new FileWriter(file);
-                    writer.write(contents);
-                    writer.close();
-                    System.out.println("File created with contect");
-                } else {
-                    System.out.println("Filw already exsist");
+                File[] files = directory.listFiles();
+                for (File file : files) {
+                    if (file.isFile() && file.getName().endsWith("txt")) {
+                        BufferedReader reader = new BufferedReader(new FileReader(file));
+                        String line = "";
+                        if ((line = reader.readLine()).contains(keyword)) {
+                            System.out.println(file.getName());
+                        } } else {
+                            System.out.println("no txt.f");
+                        }
+                    }
                 }
-            } else {
-                System.out.println("Directory dos not exist");
+            } catch(IOException e){
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            System.err.println("Error creating " + fileName + " in " + folderPath);
-            return;
 
         }
 
+        static void findLines () {
+            System.out.println("Please input file.txt Path");
+            String txtPath = scanner.nextLine();
+            System.out.println("Please input keyword");
+            String keyword = scanner.nextLine();
+            try (BufferedReader br = new BufferedReader(new FileReader(txtPath))) {
+                String line = "";
+                if ((line = br.readLine()).contains(keyword)) {
+                    System.out.println(line);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        static void createFileWithContent () throws IOException {
+            System.out.println("Please input folderPath");
+            String folderPath = scanner.nextLine();
+            System.out.println("Please input FileName");
+            String fileName = scanner.nextLine();
+            System.out.println("The Contents of the file");
+            String contents = scanner.nextLine();
+            try {
+                File directory = new File(folderPath);
+                if (directory.exists() && directory.isDirectory()) {
+                    File file = new File(directory, fileName);
+                    if (file.createNewFile() && file.canWrite()) {
+                        FileWriter writer = new FileWriter(file);
+                        writer.write(contents);
+                        writer.close();
+                        System.out.println("File created with contect");
+                    } else {
+                        System.out.println("Filw already exsist");
+                    }
+                } else {
+                    System.out.println("Directory dos not exist");
+                }
+            } catch (IOException e) {
+                System.err.println("Error creating " + fileName + " in " + folderPath);
+                return;
+
+            }
+
+        }
     }
-}
