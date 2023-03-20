@@ -1,13 +1,6 @@
 package homeworks.fileUtil;
 
-import homeworks.employee.Commands;
-
 import java.io.*;
-import java.nio.CharBuffer;
-import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -25,19 +18,35 @@ public class FileUtil implements Command {
                     isRun = false;
                     break;
                 case SEARCHFORFILE:
-                    System.out.println(fileSearch());
+                    fileSearch();
                     break;
                 case SUMSIZEOFFALDER:
-                    printSizeOfPackage();
+                    System.out.println("Please input folderPath");
+                    String folderrPath = scanner.nextLine();
+                    printSizeOfPackage(folderrPath);
                     break;
                 case CREAT_FILE_WITH_CONTENT:
-                    createFileWithContent();
+                    System.out.println("Please input folderPath");
+                    String folderPathh = scanner.nextLine();
+                    System.out.println("Please input FileName");
+                    String fileName = scanner.nextLine();
+                    System.out.println("The Contents of the file");
+                    String contents = scanner.nextLine();
+                    createFileWithContent(folderPathh,fileName,contents);
                     break;
                 case CONTENT_SEARCH:
-                    contentSearch();
+                    System.out.println("Please input folderPath");
+                    String folderPath = scanner.nextLine();
+                    System.out.println("Please input keyword");
+                    String keyword = scanner.nextLine();
+                    contentSearch(folderPath,keyword);
                     break;
                 case FIND_LINES:
-                    findLines();
+                    System.out.println("Please input file.txt Path");
+                    String txtPath = scanner.nextLine();
+                    System.out.println("Please input keyword");
+                    String keywordd = scanner.nextLine();
+                    findLines(txtPath,keywordd);
                     break;
 
                 default:
@@ -46,104 +55,114 @@ public class FileUtil implements Command {
         }
     }
 
-    static Boolean fileSearch() {
+    static void fileSearch() {
         System.out.println("Please input the path of Folder");
         String folderPath = scanner.nextLine();
         System.out.println("Please input fileName");
         String fileName = scanner.nextLine();
         File folder = new File(folderPath);
+        if (!folder.isDirectory()) {
+            System.out.println("Wrong folder path");
+            return;
+        }
         File[] files = folder.listFiles();
+        boolean isFound = false;
         for (File file : files) {
             if (file.isFile() && file.getName().equals(fileName)) {
-                return true;
+                isFound = true;
+                break;
             }
         }
-        return false;
+        System.out.println(isFound);
+
     }
 
-    static void printSizeOfPackage() {
-        System.out.println("Please input folderPath");
-        String folderPath = scanner.nextLine();
-        File file = new File(folderPath);
+    static void printSizeOfPackage(String folderrPath) {
+
+        File file = new File(folderrPath);
+        if(!file.isDirectory()){
+            System.out.println("Wrong folder path");
+            return;
+        }
         File[] files = file.listFiles();
         long size = 0;
         for (File file1 : files) {
             if (file1.isFile())
                 size = size + file.length();
-            System.out.println("size of" + folderPath + " = " + size);
+
         }
+        System.out.println("size = " + size/1024+"  kb");
     }
 
-    static void contentSearch() throws IOException {
-        System.out.println("Please input folderPath");
-        String folderPath = scanner.nextLine();
-        System.out.println("Please input keyword");
-        String keyword = scanner.nextLine();
-        try {
-            File directory = new File(folderPath);
-            if (directory.exists() && directory.isDirectory()) {
-                File[] files = directory.listFiles();
-                for (File file : files) {
-                    if (file.isFile() && file.getName().endsWith("txt")) {
-                        BufferedReader reader = new BufferedReader(new FileReader(file));
-                        String line = "";
-                        if ((line = reader.readLine()).contains(keyword)) {
-                            System.out.println(file.getName());
-                            return;
+    static void contentSearch(String folderPath,String keyword) {
+        File folderFile = new File(folderPath);
+        if (!folderFile.isDirectory()) {
+            System.out.println("Wrong folder path");
+            return;
+        }
+        File[] listFiles = folderFile.listFiles();
+        for (File file : listFiles) {
+            if ((file.isFile() && file.getName().endsWith(".txt"))) {
+                try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                    String line = null;
+                    while ((line = reader.readLine()) != null) {
+                        if (line.contains(keyword)) {
+                            System.out.println(file);
+                            break;
                         }
                     }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
-            System.out.println("no txt.f");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-    }
-
-    static void findLines() {
-        System.out.println("Please input file.txt Path");
-        String txtPath = scanner.nextLine();
-        System.out.println("Please input keyword");
-        String keyword = scanner.nextLine();
-        try (BufferedReader br = new BufferedReader(new FileReader(txtPath))) {
-            String line = "";
-            if ((line = br.readLine()).contains(keyword)) {
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
 
-    static void createFileWithContent() throws IOException {
-        System.out.println("Please input folderPath");
-        String folderPath = scanner.nextLine();
-        System.out.println("Please input FileName");
-        String fileName = scanner.nextLine();
-        System.out.println("The Contents of the file");
-        String contents = scanner.nextLine();
-        try {
-            File directory = new File(folderPath);
-            if (directory.exists() && directory.isDirectory()) {
-                File file = new File(directory, fileName);
-                if (file.createNewFile() && file.canWrite()) {
-                    FileWriter writer = new FileWriter(file);
-                    writer.write(contents);
-                    writer.close();
-                    System.out.println("File created with contect");
-                } else {
-                    System.out.println("Filw already exsist");
-                }
-            } else {
-                System.out.println("Directory dos not exist");
-            }
-        } catch (IOException e) {
-            System.err.println("Error creating " + fileName + " in " + folderPath);
+    static void findLines(String txtPath, String keywordd) {
+
+        File file = new File(txtPath);
+        if (!file.exists() || !file.getName().endsWith(".txt")) {
+            System.out.println("Wrong file or file path");
             return;
-
         }
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line = null;
+            int lineNumber = 0;
+            while ((line = br.readLine()) != null) {
+                if (line.contains(keywordd))
+                    System.out.println(lineNumber + " " + line);
+                lineNumber++;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    static void createFileWithContent(String folderPathh,String fileName,String contents){
+            File directory = new File(folderPathh);
+            if (!directory.isDirectory()) {
+                System.out.println("Wrong folder path");
+                return;
+            }
+                File file = new File(directory, fileName);
+              if(file.exists()){
+                  System.out.println("File already exist!");
+                  return;
+        }
+              try{
+                  boolean newFile=file.createNewFile();
+                  if(newFile){
+                      try(BufferedWriter fileWriter=new BufferedWriter(new FileWriter(file))){
+                          fileWriter.write(contents);
+                      }
+                  }
+              }catch (IOException e){
+                  e.printStackTrace();
+              }
 
     }
 }
